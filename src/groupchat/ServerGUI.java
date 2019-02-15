@@ -10,9 +10,9 @@ import java.awt.event.*;
 public class ServerGUI extends JFrame implements ActionListener, WindowListener {
 	
 	private static final long serialVersionUID = 1L; 
-	private JButton stopStart;
-	private JTextArea chat, event;
-	private JTextField tPortNumber;
+	private JButton btn_stopStart;
+	private JTextArea txa_Chat, txa_Event;
+	private JTextField txf_PortNumber;
 	private Server server;
 
 	// server constructor that receive the port to listen to for connection as parameter
@@ -22,26 +22,26 @@ public class ServerGUI extends JFrame implements ActionListener, WindowListener 
                 
 		JPanel north = new JPanel();
 		north.add(new JLabel("Port number: "));
-		tPortNumber = new JTextField("  " + port);
-		north.add(tPortNumber);
+		txf_PortNumber = new JTextField("  " + port);
+		north.add(txf_PortNumber);
                 Color colorBg = Color.decode("0x56A8E3");
                 north.setBackground(colorBg);
 
-		stopStart = new JButton("Start");
-		stopStart.addActionListener(this);
-		north.add(stopStart);
+		btn_stopStart = new JButton("Start");
+		btn_stopStart.addActionListener(this);
+		north.add(btn_stopStart);
 		add(north, BorderLayout.NORTH);
                 
-		// the event and chat room
+		// the txa_Event and txa_Chat room
 		JPanel center = new JPanel(new GridLayout(2,1));
-		chat = new JTextArea(80,80);
-		chat.setEditable(false);
+		txa_Chat = new JTextArea(80,80);
+		txa_Chat.setEditable(false);
 		appendRoom("Chat room.\n");
-		center.add(new JScrollPane(chat));
-		event = new JTextArea(80,80);
-		event.setEditable(false);
+		center.add(new JScrollPane(txa_Chat));
+		txa_Event = new JTextArea(80,80);
+		txa_Event.setEditable(false);
 		appendEvent("Events log.\n");
-		center.add(new JScrollPane(event));	
+		center.add(new JScrollPane(txa_Event));	
 		add(center);
 		
 		// need to be informed when the user click the close button on the frame
@@ -49,17 +49,18 @@ public class ServerGUI extends JFrame implements ActionListener, WindowListener 
 		setSize(400, 500);
 		setVisible(true);
                 this.setLocationRelativeTo(null);
+                this.setIconImage(new ImageIcon("./" +"src/Icons/icon.png").getImage());
 	}		
 
 	// append message to the two JTextArea
 	// position at the end
 	void appendRoom(String str) {
-		chat.append(str);
-		chat.setCaretPosition(chat.getText().length() - 1);
+		txa_Chat.append(str);
+		txa_Chat.setCaretPosition(txa_Chat.getText().length() - 1);
 	}
 	void appendEvent(String str) {
-		event.append(str);
-		event.setCaretPosition(chat.getText().length() - 1);
+		txa_Event.append(str);
+		txa_Event.setCaretPosition(txa_Chat.getText().length() - 1);
 		
 	}
 	
@@ -68,14 +69,14 @@ public class ServerGUI extends JFrame implements ActionListener, WindowListener 
 		if(server != null) {
 			server.stop();
 			server = null;
-			tPortNumber.setEditable(true);
-			stopStart.setText("Start");
+			txf_PortNumber.setEditable(true);
+			btn_stopStart.setText("Start");
 			return;
 		}
       	// OK start the server	
 		int port;
 		try {
-			port = Integer.parseInt(tPortNumber.getText().trim());
+			port = Integer.parseInt(txf_PortNumber.getText().trim());
 		}
 		catch(Exception er) {
 			appendEvent("Cổng không hợp lệ !");
@@ -84,8 +85,8 @@ public class ServerGUI extends JFrame implements ActionListener, WindowListener 
 		server = new Server(port, this);
 		// and start it as a thread
 		new ServerRunning().start();
-		stopStart.setText("Stop");
-		tPortNumber.setEditable(false);
+		btn_stopStart.setText("Stop");
+		txf_PortNumber.setEditable(false);
 	}
 	
 	// entry point to start the Server
@@ -124,8 +125,8 @@ public class ServerGUI extends JFrame implements ActionListener, WindowListener 
 		public void run() {
 			server.start();        
 			// the server failed
-			stopStart.setText("Start");
-			tPortNumber.setEditable(true);
+			btn_stopStart.setText("Start");
+			txf_PortNumber.setEditable(true);
 			appendEvent("Dừng server...\n");
 			server = null;
 		}

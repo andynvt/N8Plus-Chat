@@ -14,7 +14,7 @@ public class ConnectSQL {
     private Connection cn;
     public ConnectSQL(){
         try{
-            cn = DriverManager.getConnection("jdbc:sqlserver://NGUYENHIEP\\MSSQLSERVER2014:1433;databaseName=GroupChat;user=sa;password=sa2014");
+            cn = DriverManager.getConnection("jdbc:sqlserver://DESKTOP-DGGS3J6\\SQLEXPRESS:1433;databaseName=GroupChat;user=sa;password=sa2008");
         }catch(SQLException ex){
             JOptionPane.showMessageDialog(null, "Kết nối thất bại nhé!");
         }        
@@ -39,6 +39,7 @@ public boolean CheckLogin(TaiKhoan tk)
         }
         return check; 
     }
+
     public boolean CheckTDN(String tdn){
         String sql;
             sql = "Select * From taikhoan Where tentk = '"+tdn+"'";

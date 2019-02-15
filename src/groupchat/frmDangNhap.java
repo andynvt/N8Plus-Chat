@@ -209,6 +209,7 @@ public class frmDangNhap extends javax.swing.JFrame {
         TaiKhoan tk = new TaiKhoan();
         tk.setTdn(tdn); tk.setMk(mk);
         boolean check = cn.CheckLogin(tk);
+        
         int lv = cn.LVTK(tk);
         if(tdn.equals("") || mk.equals("")){
             JOptionPane.showMessageDialog(null, "Vui lòng nhập đầy đủ các trường!", "Lỗi", JOptionPane.ERROR_MESSAGE);
@@ -219,19 +220,19 @@ public class frmDangNhap extends javax.swing.JFrame {
                txt_MatKhau.setBorder(lineBorder);
         }
         else{
-            if(check == true){
+            if(check == true){ 
                 if(lv==1){
-                   Run.tk = cn.GetTaiKhoan(tdn, mk);
+                    Run.tk = cn.GetTaiKhoan(tdn, mk);
                     this.setVisible(false);
                     ServerGUI frmServer = new ServerGUI(1500);
                 }
                 if(lv==2){
-                    Run.tk = cn.GetTaiKhoan(tdn, mk);
-                    this.setVisible(false);
-                    nickName = cn.getNickName(tdn);
-                    nick = tk.getTdn();
-                    ClientGUI frmClient = new ClientGUI("localhost", 1500);
-                }
+                        Run.tk = cn.GetTaiKhoan(tdn, mk);
+                        this.setVisible(false);
+                        nickName = cn.getNickName(tdn);
+                        nick = tk.getTdn();
+                        ClientGUI frmClient = new ClientGUI("localhost", 1500);
+                } 
             }
             else{
                 JOptionPane.showMessageDialog(null, "Tài khoản hoặc mật khẩu không đúng", "Lỗi đăng nhập", JOptionPane.ERROR_MESSAGE);

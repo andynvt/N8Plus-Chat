@@ -79,7 +79,7 @@ public class Client  {
 	}
 
 	
-	// To send a message to the console or the GUI
+	// Viết tin nhắn lên giao diện
 	private void display(String msg) {
 		if(cg == null)
 			System.out.println(msg);    
@@ -89,7 +89,7 @@ public class Client  {
 	}
         
         
-	//To send a message to the server
+	//Gửi thông điệp tới Server
 	void sendMessage(ChatMessage msg) {
 		try {
 			sOutput.writeObject(msg);
@@ -118,13 +118,12 @@ public class Client  {
 	}
 	
 	public static void main(String[] args) {
-		// default values
+		// Giá trị mặc định
 		int portNumber = 1500;
 		String serverAddress = "localhost";
 		String userName = "Anonymous";
                 
                 
-		// depending of the number of arguments provided we fall through
 		switch(args.length) {
 			case 3:
 				serverAddress = args[2];

@@ -6,7 +6,6 @@ import java.net.*;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-// The server that can be run both as a console application or a GUI
 public class Server {
 	private static int uniqueId;
 	private ArrayList<ClientThread> al;
@@ -45,7 +44,7 @@ public class Server {
 				al.add(t);									
 				t.start();
 			}
-			// I was asked to stop
+			// Khi dừng serverSocket
 			try {
 				serverSocket.close();
 				for(int i = 0; i < al.size(); ++i) {
@@ -70,7 +69,7 @@ public class Server {
 			display(msg);
 		}
 	}		
-    // For the GUI to stop the server
+    
 	protected void stop() {
 		keepGoing = false;
 
@@ -80,7 +79,7 @@ public class Server {
 		catch(Exception e) {
 		}
 	}
-	// Display an event (not a message) to the console or the GUI
+	// Ghi luồng sự kiện lên GUI
 	private void display(String msg) {
 		String time = "[" +sdf.format(new Date()) + "] " + msg;
 		if(sg == null)
@@ -88,7 +87,7 @@ public class Server {
 		else
 			sg.appendEvent(time+ "\n");
 	}
-	// to broadcast a message to all Clients
+	// Luồng thông điệp cho tất cả Client
 	private synchronized void broadcast(String message) {
 		String time = sdf.format(new Date());
 		String messageLf = "[" +time+ "] " + message + "\n";
@@ -100,14 +99,14 @@ public class Server {
 		for(int i = al.size(); --i >= 0;) {
 			ClientThread ct = al.get(i);
 
-			if(!ct.writeMsg(messageLf)) {
+			if(!ct.write(messageLf)) {
 				al.remove(i);
 				display("Ngắt kết nối Client " + ct.username + ".");
 			}
 		}
 	}
 
-	// for a client who logoff using the LOGOUT message
+	// Khi Client gửi thông điệp Đăng xuất
 	synchronized void remove(int id) {
 		for(int i = 0; i < al.size(); ++i) {
 			ClientThread ct = al.get(i);
@@ -142,7 +141,7 @@ public class Server {
 		server.start();
 	}
 
-	/** One instance of this thread will run for each client */
+	// Tạo luồng cho các Client
 	class ClientThread extends Thread {
 		Socket socket;
 		ObjectInputStream sInput;
@@ -153,7 +152,7 @@ public class Server {
 		ChatMessage cm;
 		String date;
 
-		// Constructore
+		
 		ClientThread(Socket socket) {
 
 			id = ++uniqueId;
@@ -179,7 +178,7 @@ public class Server {
             date = new Date().toString() + "\n";
 		}
 
-		// what will run forever
+	
 		public void run() {
 			boolean keepGoing = true;
 			while(keepGoing) {
@@ -207,7 +206,7 @@ public class Server {
 				case ChatMessage.WHOISIN:
                                         for(int i = 0; i < al.size(); ++i) {
 						ClientThread ct = al.get(i);
-						writeMsg("- "+ct.username +"\n");
+						write("- "+ct.username +"\n");
 					}
                                         break;
 				}
@@ -216,9 +215,8 @@ public class Server {
 			close();
 		}
 		
-		// try to close everything
+		
 		private void close() {
-			// try to close the connection
 			try {
 				if(sOutput != null) sOutput.close();
 			}
@@ -233,8 +231,8 @@ public class Server {
 			catch (Exception e) {}
 		}
 
-		// Write a String to the Client output stream
-		private boolean writeMsg(String msg) {
+		
+		private boolean write(String msg) {
 			if(!socket.isConnected()) {
 				close();
 				return false;

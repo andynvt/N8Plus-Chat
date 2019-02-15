@@ -26,39 +26,39 @@ public class ClientGUI extends JFrame {
         Image image = icon.getImage();
         setIconImage(image);
         
-        lblName.setText("Tên: " + frmDangNhap.nickName);
-        lblTrangThai.setText("Trạng thái: Đang hoạt động");
+        lbl_Name.setText("Tên: " + frmDangNhap.nickName);
+        lbl_TrangThai.setText("Trạng thái: Đang hoạt động");
         this.setVisible(true);
         this.setLocationRelativeTo(null);
-        txaChat.requestFocus();
+        txa_Chat.requestFocus();
        
         ConnectSQL cn = new ConnectSQL();
         pathAvatar = cn.getAvatar(frmDangNhap.nickName);
         if(pathAvatar != null){
-            lblAvatar.setIcon(ResizeImage(pathAvatar, null));
+            lbl_Avatar.setIcon(ResizeImage(pathAvatar, null));
         }
-        else lblAvatar.setIcon(ResizeImage("./" + "src/Icons/default_avatar.png", null));
+        else lbl_Avatar.setIcon(ResizeImage("./" + "src/Icons/default_avatar.png", null));
         
         
         tm = new Timer(1000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 ConnectSQL cn = new ConnectSQL();
-                txaOnline.setText(cn.getOnl());
+                txa_Online.setText(cn.getOnl());
             }
         });
 
     }
 
     void appendChat(String str) {
-        txaFrameChat.append(str);
-        txaFrameChat.setCaretPosition(txaFrameChat.getText().length() - 1);
+        txa_FrameChat.append(str);
+        txa_FrameChat.setCaretPosition(txa_FrameChat.getText().length() - 1);
     }
 
     void connectionFailed() {
-        lblLogout.setEnabled(false);
-        lblName.setText("Anonymous");
-        lblTrangThai.setText("Đang bận");
+        lbl_Logout.setEnabled(false);
+        lbl_Name.setText("Anonymous");
+        lbl_TrangThai.setText("Đang bận");
         connected = false;
     }
 
@@ -67,25 +67,24 @@ public class ClientGUI extends JFrame {
     private void initComponents() {
 
         pnlChatGroup = new javax.swing.JPanel();
-        lblAvatar = new javax.swing.JLabel();
-        lblName = new javax.swing.JLabel();
-        lblTrangThai = new javax.swing.JLabel();
+        lbl_Avatar = new javax.swing.JLabel();
+        lbl_Name = new javax.swing.JLabel();
+        lbl_TrangThai = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        txaFrameChat = new javax.swing.JTextArea();
-        lblSend = new javax.swing.JLabel();
-        lblSticker = new javax.swing.JLabel();
-        lblMore = new javax.swing.JLabel();
-        lblLogout = new javax.swing.JLabel();
+        txa_FrameChat = new javax.swing.JTextArea();
+        lbl_Send = new javax.swing.JLabel();
+        lbl_Sticker = new javax.swing.JLabel();
+        lbl_More = new javax.swing.JLabel();
+        lbl_Logout = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        txaChat = new javax.swing.JTextArea();
+        txa_Chat = new javax.swing.JTextArea();
         jScrollPane3 = new javax.swing.JScrollPane();
-        txaOnline = new javax.swing.JTextArea();
-        lblEditName = new javax.swing.JLabel();
+        txa_Online = new javax.swing.JTextArea();
+        lbl_EditName = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(86, 168, 227));
         setName("frmClientGUI"); // NOI18N
-        setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(645, 570));
         setResizable(false);
         addMouseListener(new java.awt.event.MouseAdapter() {
@@ -111,88 +110,89 @@ public class ClientGUI extends JFrame {
         });
 
         pnlChatGroup.setBackground(new java.awt.Color(86, 168, 227));
-        pnlChatGroup.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 40, 50), 2));
+        pnlChatGroup.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pnlChatGroup.setMaximumSize(null);
         pnlChatGroup.setPreferredSize(new java.awt.Dimension(640, 560));
 
-        lblAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/default_avatar.png"))); // NOI18N
-        lblAvatar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        lblAvatar.addMouseListener(new java.awt.event.MouseAdapter() {
+        lbl_Avatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/default_avatar.png"))); // NOI18N
+        lbl_Avatar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lbl_Avatar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblAvatarMouseClicked(evt);
+                lbl_AvatarMouseClicked(evt);
             }
         });
 
-        lblName.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lblName.setText("Tên:");
+        lbl_Name.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbl_Name.setText("Tên:");
 
-        lblTrangThai.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lblTrangThai.setText("Trạng thái: ");
+        lbl_TrangThai.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbl_TrangThai.setText("Trạng thái: ");
 
-        txaFrameChat.setColumns(20);
-        txaFrameChat.setLineWrap(true);
-        txaFrameChat.setRows(5);
-        jScrollPane1.setViewportView(txaFrameChat);
+        txa_FrameChat.setEditable(false);
+        txa_FrameChat.setColumns(20);
+        txa_FrameChat.setLineWrap(true);
+        txa_FrameChat.setRows(5);
+        jScrollPane1.setViewportView(txa_FrameChat);
 
-        lblSend.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/send.png"))); // NOI18N
-        lblSend.setToolTipText("Gửi");
-        lblSend.addMouseListener(new java.awt.event.MouseAdapter() {
+        lbl_Send.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/send.png"))); // NOI18N
+        lbl_Send.setToolTipText("Gửi");
+        lbl_Send.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblSendMouseClicked(evt);
+                lbl_SendMouseClicked(evt);
             }
         });
 
-        lblSticker.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Sticker.png"))); // NOI18N
-        lblSticker.setToolTipText("Biểu cảm");
-        lblSticker.addMouseListener(new java.awt.event.MouseAdapter() {
+        lbl_Sticker.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Sticker.png"))); // NOI18N
+        lbl_Sticker.setToolTipText("Biểu cảm");
+        lbl_Sticker.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblStickerMouseClicked(evt);
+                lbl_StickerMouseClicked(evt);
             }
         });
 
-        lblMore.setFont(new java.awt.Font("Segoe UI Black", 1, 24)); // NOI18N
-        lblMore.setText("... ");
-        lblMore.setToolTipText("Đổi mật khẩu");
-        lblMore.addMouseListener(new java.awt.event.MouseAdapter() {
+        lbl_More.setFont(new java.awt.Font("Segoe UI Black", 1, 24)); // NOI18N
+        lbl_More.setText("... ");
+        lbl_More.setToolTipText("Đổi mật khẩu");
+        lbl_More.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblMoreMouseClicked(evt);
+                lbl_MoreMouseClicked(evt);
             }
         });
 
-        lblLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Logout.png"))); // NOI18N
-        lblLogout.setToolTipText("Đăng xuất");
-        lblLogout.addMouseListener(new java.awt.event.MouseAdapter() {
+        lbl_Logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Logout.png"))); // NOI18N
+        lbl_Logout.setToolTipText("Đăng xuất");
+        lbl_Logout.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblLogoutMouseClicked(evt);
+                lbl_LogoutMouseClicked(evt);
             }
         });
 
         jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
-        txaChat.setColumns(20);
-        txaChat.setLineWrap(true);
-        txaChat.setRows(5);
-        txaChat.addKeyListener(new java.awt.event.KeyAdapter() {
+        txa_Chat.setColumns(20);
+        txa_Chat.setLineWrap(true);
+        txa_Chat.setRows(5);
+        txa_Chat.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                txaChatKeyPressed(evt);
+                txa_ChatKeyPressed(evt);
             }
         });
-        jScrollPane2.setViewportView(txaChat);
+        jScrollPane2.setViewportView(txa_Chat);
 
-        txaOnline.setColumns(20);
-        txaOnline.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        txaOnline.setRows(5);
-        txaOnline.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Đang hoạt động", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
-        txaOnline.setMaximumSize(new java.awt.Dimension(172, 93));
-        txaOnline.setMinimumSize(new java.awt.Dimension(172, 93));
-        txaOnline.setRequestFocusEnabled(false);
-        jScrollPane3.setViewportView(txaOnline);
+        txa_Online.setColumns(20);
+        txa_Online.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        txa_Online.setRows(5);
+        txa_Online.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Đang hoạt động", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
+        txa_Online.setMaximumSize(new java.awt.Dimension(172, 93));
+        txa_Online.setMinimumSize(new java.awt.Dimension(172, 93));
+        txa_Online.setRequestFocusEnabled(false);
+        jScrollPane3.setViewportView(txa_Online);
 
-        lblEditName.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/edit.png"))); // NOI18N
-        lblEditName.addMouseListener(new java.awt.event.MouseAdapter() {
+        lbl_EditName.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/edit.png"))); // NOI18N
+        lbl_EditName.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblEditNameMouseClicked(evt);
+                lbl_EditNameMouseClicked(evt);
             }
         });
 
@@ -203,46 +203,46 @@ public class ClientGUI extends JFrame {
             .addGroup(pnlChatGroupLayout.createSequentialGroup()
                 .addGap(5, 5, 5)
                 .addGroup(pnlChatGroupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 447, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 449, Short.MAX_VALUE)
                     .addComponent(jScrollPane2))
                 .addGap(5, 5, 5)
                 .addGroup(pnlChatGroupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlChatGroupLayout.createSequentialGroup()
-                        .addComponent(lblSend, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lbl_Send, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
-                        .addComponent(lblSticker, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lbl_Sticker, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblMore, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lbl_More, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(5, 5, 5))
             .addGroup(pnlChatGroupLayout.createSequentialGroup()
                 .addGap(10, 10, 10)
-                .addComponent(lblAvatar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lbl_Avatar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlChatGroupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlChatGroupLayout.createSequentialGroup()
-                        .addComponent(lblName)
+                        .addComponent(lbl_Name)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblEditName))
-                    .addComponent(lblTrangThai))
+                        .addComponent(lbl_EditName))
+                    .addComponent(lbl_TrangThai))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lbl_Logout, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
         pnlChatGroupLayout.setVerticalGroup(
             pnlChatGroupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlChatGroupLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(10, 10, 10)
                 .addGroup(pnlChatGroupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblAvatar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl_Avatar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pnlChatGroupLayout.createSequentialGroup()
                         .addGap(5, 5, 5)
                         .addGroup(pnlChatGroupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblName)
-                            .addComponent(lblEditName))
+                            .addComponent(lbl_Name)
+                            .addComponent(lbl_EditName))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblTrangThai))
-                    .addComponent(lblLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lbl_TrangThai))
+                    .addComponent(lbl_Logout, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(8, 8, 8)
                 .addGroup(pnlChatGroupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 383, Short.MAX_VALUE)
@@ -254,12 +254,12 @@ public class ClientGUI extends JFrame {
                     .addGroup(pnlChatGroupLayout.createSequentialGroup()
                         .addGap(16, 16, 16)
                         .addGroup(pnlChatGroupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblSend, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblSticker, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(lbl_Send, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_Sticker, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(pnlChatGroupLayout.createSequentialGroup()
                         .addGap(10, 10, 10)
-                        .addComponent(lblMore, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(21, Short.MAX_VALUE))
+                        .addComponent(lbl_More, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -279,7 +279,7 @@ public class ClientGUI extends JFrame {
     private boolean flag;
     private int x,y;
     
-    private void lblLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLogoutMouseClicked
+    private void lbl_LogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_LogoutMouseClicked
         client.sendMessage(new ChatMessage(ChatMessage.LOGOUT, ""));
         ConnectSQL cn = new ConnectSQL();
         cn.logOut(frmDangNhap.nickName);
@@ -287,7 +287,7 @@ public class ClientGUI extends JFrame {
         this.dispose();
         Run.dangNhap();
         
-    }//GEN-LAST:event_lblLogoutMouseClicked
+    }//GEN-LAST:event_lbl_LogoutMouseClicked
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         String server = defaultHost;
@@ -297,36 +297,36 @@ public class ClientGUI extends JFrame {
         if (!client.start()) {
             return;
         }
-        txaChat.setText("");
+        txa_Chat.setText("");
         connected = true;
         tm.start();
         
     }//GEN-LAST:event_formWindowOpened
 
-    private void txaChatKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txaChatKeyPressed
+    private void txa_ChatKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txa_ChatKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            client.sendMessage(new ChatMessage(ChatMessage.MESSAGE, txaChat.getText()));
+            client.sendMessage(new ChatMessage(ChatMessage.MESSAGE, txa_Chat.getText()));
             evt.consume();
-            txaChat.setText("");
+            txa_Chat.setText("");
         }
-    }//GEN-LAST:event_txaChatKeyPressed
+    }//GEN-LAST:event_txa_ChatKeyPressed
 
-    private void lblSendMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSendMouseClicked
-        client.sendMessage(new ChatMessage(ChatMessage.MESSAGE, txaChat.getText()));
+    private void lbl_SendMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_SendMouseClicked
+        client.sendMessage(new ChatMessage(ChatMessage.MESSAGE, txa_Chat.getText()));
         evt.consume();
-        txaChat.setText("");
-    }//GEN-LAST:event_lblSendMouseClicked
+        txa_Chat.setText("");
+    }//GEN-LAST:event_lbl_SendMouseClicked
 
-    private void lblStickerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblStickerMouseClicked
+    private void lbl_StickerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_StickerMouseClicked
         JOptionPane.showConfirmDialog(this, "Tính năng gửi Sticker\n đang được phát triển!", "Thông báo", JOptionPane.PLAIN_MESSAGE);
-    }//GEN-LAST:event_lblStickerMouseClicked
+    }//GEN-LAST:event_lbl_StickerMouseClicked
 
-    private void lblMoreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMoreMouseClicked
+    private void lbl_MoreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_MoreMouseClicked
         frmDoiMatKhau doiMk = new frmDoiMatKhau();
         doiMk.setVisible(true);
         doiMk.setLocationRelativeTo(this);
         
-    }//GEN-LAST:event_lblMoreMouseClicked
+    }//GEN-LAST:event_lbl_MoreMouseClicked
 
     private ImageIcon ResizeImage(String imagePath, byte[] pic){
         ImageIcon myImage = null;
@@ -337,12 +337,12 @@ public class ClientGUI extends JFrame {
             myImage = new ImageIcon(pic);
         }
         Image img = myImage.getImage();
-        Image img2 = img.getScaledInstance(lblAvatar.getWidth(), lblAvatar.getHeight(), Image.SCALE_SMOOTH);
+        Image img2 = img.getScaledInstance(lbl_Avatar.getWidth(), lbl_Avatar.getHeight(), Image.SCALE_SMOOTH);
         ImageIcon image = new ImageIcon(img2);
         return image;
      }
     
-    private void lblAvatarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAvatarMouseClicked
+    private void lbl_AvatarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_AvatarMouseClicked
         JFileChooser file = new JFileChooser();
         file.setCurrentDirectory(new File(System.getProperty("user.home")));
        
@@ -354,14 +354,14 @@ public class ClientGUI extends JFrame {
             File selectedFile = file.getSelectedFile();
             String path = selectedFile.getAbsolutePath();
             
-            lblAvatar.setIcon(ResizeImage(path, null));
+            lbl_Avatar.setIcon(ResizeImage(path, null));
             ConnectSQL cn = new ConnectSQL();
             cn.setAvatar(frmDangNhap.nickName, path);
         }
         else{
             System.out.println("Không tìm được ảnh !");
         }
-    }//GEN-LAST:event_lblAvatarMouseClicked
+    }//GEN-LAST:event_lbl_AvatarMouseClicked
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         client.sendMessage(new ChatMessage(ChatMessage.LOGOUT, ""));
@@ -387,14 +387,22 @@ public class ClientGUI extends JFrame {
         flag=false;
     }//GEN-LAST:event_formMouseReleased
 
-    private void lblEditNameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEditNameMouseClicked
+    private void lbl_EditNameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_EditNameMouseClicked
         String name = JOptionPane.showInputDialog("Mời bạn nhập tên mới: ");
-        if(name != null){
-            ConnectSQL cn = new ConnectSQL();
-            cn.changeNickName(name, frmDangNhap.nick);
-            lblName.setText("Tên: "+name);
-        }
-    }//GEN-LAST:event_lblEditNameMouseClicked
+            if(name != null){
+                int cfm = JOptionPane.showConfirmDialog(this, "Bạn vui lòng đăng nhập lại \nđể xác nhận các thay đổi!", "Thông báo", JOptionPane.YES_NO_OPTION);
+                if (cfm == 0){
+                ConnectSQL cn = new ConnectSQL();
+                cn.changeNickName(name, frmDangNhap.nick);
+                lbl_Name.setText("Tên: "+name);
+                client.sendMessage(new ChatMessage(ChatMessage.LOGOUT, ""));
+                cn.logOut(frmDangNhap.nickName);
+                tm.stop();
+                this.dispose();
+                Run.dangNhap();
+                }    
+            }
+    }//GEN-LAST:event_lbl_EditNameMouseClicked
 
     /**
      * @param args the command line arguments
@@ -430,17 +438,17 @@ public class ClientGUI extends JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JLabel lblAvatar;
-    private javax.swing.JLabel lblEditName;
-    private javax.swing.JLabel lblLogout;
-    private javax.swing.JLabel lblMore;
-    private javax.swing.JLabel lblName;
-    private javax.swing.JLabel lblSend;
-    private javax.swing.JLabel lblSticker;
-    private javax.swing.JLabel lblTrangThai;
+    private javax.swing.JLabel lbl_Avatar;
+    private javax.swing.JLabel lbl_EditName;
+    private javax.swing.JLabel lbl_Logout;
+    private javax.swing.JLabel lbl_More;
+    private javax.swing.JLabel lbl_Name;
+    private javax.swing.JLabel lbl_Send;
+    private javax.swing.JLabel lbl_Sticker;
+    private javax.swing.JLabel lbl_TrangThai;
     private javax.swing.JPanel pnlChatGroup;
-    private javax.swing.JTextArea txaChat;
-    private javax.swing.JTextArea txaFrameChat;
-    private javax.swing.JTextArea txaOnline;
+    private javax.swing.JTextArea txa_Chat;
+    private javax.swing.JTextArea txa_FrameChat;
+    private javax.swing.JTextArea txa_Online;
     // End of variables declaration//GEN-END:variables
 }

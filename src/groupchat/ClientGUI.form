@@ -7,7 +7,6 @@
       <Color blue="e3" green="a8" red="56" type="rgb"/>
     </Property>
     <Property name="name" type="java.lang.String" value="frmClientGUI" noResource="true"/>
-    <Property name="undecorated" type="boolean" value="true"/>
     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[645, 570]"/>
     </Property>
@@ -56,9 +55,7 @@
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-            <LineBorder thickness="2">
-              <Color PropertyName="color" blue="32" green="28" red="0" type="rgb"/>
-            </LineBorder>
+            <LineBorder/>
           </Border>
         </Property>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -75,17 +72,17 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane1" alignment="0" pref="447" max="32767" attributes="0"/>
+                      <Component id="jScrollPane1" alignment="0" pref="449" max="32767" attributes="0"/>
                       <Component id="jScrollPane2" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="lblSend" min="-2" pref="50" max="-2" attributes="0"/>
+                          <Component id="lbl_Send" min="-2" pref="50" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                          <Component id="lblSticker" min="-2" pref="50" max="-2" attributes="0"/>
+                          <Component id="lbl_Sticker" min="-2" pref="50" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="lblMore" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="lbl_More" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
                       <Component id="jScrollPane3" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -93,18 +90,18 @@
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                  <Component id="lblAvatar" min="-2" pref="50" max="-2" attributes="0"/>
+                  <Component id="lbl_Avatar" min="-2" pref="50" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="lblName" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbl_Name" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="lblEditName" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbl_EditName" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="lblTrangThai" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbl_TrangThai" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
-                  <Component id="lblLogout" min="-2" pref="50" max="-2" attributes="0"/>
+                  <Component id="lbl_Logout" min="-2" pref="50" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -112,19 +109,19 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblAvatar" min="-2" pref="50" max="-2" attributes="0"/>
+                      <Component id="lbl_Avatar" min="-2" pref="50" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblName" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblEditName" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbl_Name" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbl_EditName" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="lblTrangThai" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbl_TrangThai" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="lblLogout" alignment="0" min="-2" pref="50" max="-2" attributes="0"/>
+                      <Component id="lbl_Logout" alignment="0" min="-2" pref="50" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -139,22 +136,22 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblSend" min="-2" pref="50" max="-2" attributes="0"/>
-                              <Component id="lblSticker" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="lbl_Send" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="lbl_Sticker" min="-2" pref="50" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                          <Component id="lblMore" min="-2" pref="50" max="-2" attributes="0"/>
+                          <Component id="lbl_More" min="-2" pref="50" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="21" max="32767" attributes="0"/>
+                  <EmptySpace pref="33" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="lblAvatar">
+        <Component class="javax.swing.JLabel" name="lbl_Avatar">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/Icons/default_avatar.png"/>
@@ -166,10 +163,10 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblAvatarMouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lbl_AvatarMouseClicked"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblName">
+        <Component class="javax.swing.JLabel" name="lbl_Name">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="12" style="1"/>
@@ -177,7 +174,7 @@
             <Property name="text" type="java.lang.String" value="T&#xea;n:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblTrangThai">
+        <Component class="javax.swing.JLabel" name="lbl_TrangThai">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="12" style="1"/>
@@ -192,8 +189,9 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTextArea" name="txaFrameChat">
+            <Component class="javax.swing.JTextArea" name="txa_FrameChat">
               <Properties>
+                <Property name="editable" type="boolean" value="false"/>
                 <Property name="columns" type="int" value="20"/>
                 <Property name="lineWrap" type="boolean" value="true"/>
                 <Property name="rows" type="int" value="5"/>
@@ -201,7 +199,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JLabel" name="lblSend">
+        <Component class="javax.swing.JLabel" name="lbl_Send">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/Icons/send.png"/>
@@ -209,10 +207,10 @@
             <Property name="toolTipText" type="java.lang.String" value="G&#x1eed;i"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblSendMouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lbl_SendMouseClicked"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblSticker">
+        <Component class="javax.swing.JLabel" name="lbl_Sticker">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/Icons/Sticker.png"/>
@@ -220,10 +218,10 @@
             <Property name="toolTipText" type="java.lang.String" value="Bi&#x1ec3;u c&#x1ea3;m"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblStickerMouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lbl_StickerMouseClicked"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblMore">
+        <Component class="javax.swing.JLabel" name="lbl_More">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI Black" size="24" style="1"/>
@@ -232,10 +230,10 @@
             <Property name="toolTipText" type="java.lang.String" value="&#x110;&#x1ed5;i m&#x1ead;t kh&#x1ea9;u"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblMoreMouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lbl_MoreMouseClicked"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblLogout">
+        <Component class="javax.swing.JLabel" name="lbl_Logout">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/Icons/Logout.png"/>
@@ -243,7 +241,7 @@
             <Property name="toolTipText" type="java.lang.String" value="&#x110;&#x103;ng xu&#x1ea5;t"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblLogoutMouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lbl_LogoutMouseClicked"/>
           </Events>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane2">
@@ -257,14 +255,14 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTextArea" name="txaChat">
+            <Component class="javax.swing.JTextArea" name="txa_Chat">
               <Properties>
                 <Property name="columns" type="int" value="20"/>
                 <Property name="lineWrap" type="boolean" value="true"/>
                 <Property name="rows" type="int" value="5"/>
               </Properties>
               <Events>
-                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txaChatKeyPressed"/>
+                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txa_ChatKeyPressed"/>
               </Events>
             </Component>
           </SubComponents>
@@ -276,7 +274,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTextArea" name="txaOnline">
+            <Component class="javax.swing.JTextArea" name="txa_Online">
               <Properties>
                 <Property name="columns" type="int" value="20"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -304,14 +302,14 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JLabel" name="lblEditName">
+        <Component class="javax.swing.JLabel" name="lbl_EditName">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/Icons/edit.png"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblEditNameMouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lbl_EditNameMouseClicked"/>
           </Events>
         </Component>
       </SubComponents>
